@@ -9,6 +9,12 @@ class Preference extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'notify_emails',
+        'notify',
+        'background_color'
+    ];
+
     // Relacionamento One To One (Um pra um) inverso
     public function user()
     {

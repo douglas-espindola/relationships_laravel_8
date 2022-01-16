@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Course;
 use App\Models\Preference;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,17 @@ use function PHPSTORM_META\elementType;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/one-to-many', function () {
+    // $course = Course::create(['name' => 'Curso de laravel 8']);
+
+    $course = Course::first();
+
+    $modules = $course->module;
+
+    dd($modules);
+    // dd($course);
+});
 
 Route::get('/one-to-one', function () {
     // $user = User::first();

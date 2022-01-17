@@ -21,14 +21,40 @@ use function PHPSTORM_META\elementType;
 */
 
 Route::get('/one-to-many', function () {
+    //Criando um curso
+
     // $course = Course::create(['name' => 'Curso de laravel 8']);
 
-    $course = Course::first();
+    // Listando o curso
 
-    $modules = $course->module;
+    // $course = Course::first();
 
-    dd($modules);
-    // dd($course);
+    // Para trazer os relacioamentos na consulta dos modulos e das liçoes
+    $course = Course::with('modules.lessons')->first();
+
+    // criando um modulo para um curso.
+
+    // $data = [
+    //     'name' => 'Módulo x2'
+    // ];
+    // $course->modules()->create($data);
+
+    // Exemplo de consulta para trazer as informações do array
+
+    echo $course->name;
+    echo '<br>';
+    foreach ($course->modules as $module) {
+        echo "Módulo {$module->name} <br>";
+
+        foreach ($module->lessons as $lesson) {
+            echo "Aulas {$lesson->name} <br>";
+        }
+    }
+
+    $modules = $course->modules;
+
+    // dd($modules);
+    dd($course);
 });
 
 Route::get('/one-to-one', function () {

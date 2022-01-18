@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Course;
+use App\Models\Permission;
 use App\Models\Preference;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ use function PHPSTORM_META\elementType;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/many-to-many', function () {
+    dd(Permission::created(['name' => 'menu_01']));
+});
 
 Route::get('/one-to-many', function () {
     //Criando um curso

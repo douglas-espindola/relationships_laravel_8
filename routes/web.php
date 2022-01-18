@@ -22,7 +22,7 @@ use function PHPSTORM_META\elementType;
 */
 
 Route::get('/many-to-many', function () {
-    dd(Permission::created(['name' => 'menu_01']));
+    // dd(Permission::created(['name' => 'menu_01']));
 });
 
 Route::get('/one-to-many', function () {

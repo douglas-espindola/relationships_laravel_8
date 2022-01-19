@@ -25,10 +25,18 @@ Route::get('/many-to-many', function () {
     // Criando as permissoes
     // dd(Permission::create(['name' => 'menu_03']));
 
-    // Filtrando as permissoes
+    // Consulta de usuarios já com o relacionamento de permissao
     $user = User::with('permissions')->find(1);
 
-    dd($user);
+    // Vincular uma permissao 1 para o usuario 1
+
+    $permission = Permission::find(1);
+
+    $user->permissions()->save($permission);
+
+
+
+    dd($user->permissions);
 });
 
 Route::get('/one-to-many', function () {

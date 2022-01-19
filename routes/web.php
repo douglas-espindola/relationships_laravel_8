@@ -30,14 +30,16 @@ Route::get('/many-to-many', function () {
 
     // Vincular uma permissao 1 para o usuario 1
 
-    $permission = Permission::find(1);
+    // $permission = Permission::find(1);
     // $user->permissions()->save($permission);
 
     // Varias permissoes 
-    $user->permissions()->saveMany([
-        Permission::find(2),
-        Permission::find(3),
-    ]);
+    // $user->permissions()->saveMany([
+    //     Permission::find(2),
+    //     Permission::find(3),
+    // ]);
+
+    $user->permissions()->sync([1]);
 
     $user->refresh();
 

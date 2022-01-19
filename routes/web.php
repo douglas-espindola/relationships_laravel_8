@@ -7,6 +7,7 @@ use App\Models\Permission;
 use App\Models\Preference;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Monolog\Handler\RotatingFileHandler;
 
 use function PHPSTORM_META\elementType;
 
@@ -20,6 +21,10 @@ use function PHPSTORM_META\elementType;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/ many-to-many-pivot', function () {
+    //
+});
 
 Route::get('/many-to-many', function () {
     // Criando as permissoes
@@ -42,9 +47,12 @@ Route::get('/many-to-many', function () {
     // Atualizar permissoes e deixar so uma
     // $user->permissions()->sync([1]);
 
-    // Adiciona as permissoes que o usuario nao tem mas se já tiver vai repetir.
+    // Adicionar mais permissoes idependente se já tem elas
+    // $user->permissions()->attach([1, 3]);
 
-    $user->permissions()->attach([1, 3]);
+    // remove as permisoes
+    // $user->permissions()->detach([1, 3]);
+
 
 
     $user->refresh();

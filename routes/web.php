@@ -39,7 +39,13 @@ Route::get('/many-to-many', function () {
     //     Permission::find(3),
     // ]);
 
-    $user->permissions()->sync([1]);
+    // Atualizar permissoes e deixar so uma
+    // $user->permissions()->sync([1]);
+
+    // Adiciona as permissoes que o usuario nao tem mas se já tiver vai repetir.
+
+    $user->permissions()->attach([1, 3]);
+
 
     $user->refresh();
 

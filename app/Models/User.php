@@ -51,6 +51,6 @@ class User extends Authenticatable
     public function permissions()
     {
         return $this->belongsToMany(Permission::class)
-            ->wherePivot(['active', 'created_at']);
+            ->wherePivot('active');
     }
 }

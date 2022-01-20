@@ -22,8 +22,12 @@ use function PHPSTORM_META\elementType;
 |
 */
 
-Route::get('/ many-to-many-pivot', function () {
-    //
+Route::get('/many-to-many-pivot', function () {
+    $user = User::with('permissions')->find(10);
+    echo "<b>{$user->name}</b><br>";
+    foreach ($user->permissions as $permission) {
+        echo "{$permission->name} - {$permission->pivot->active}<br>";
+    }
 });
 
 Route::get('/many-to-many', function () {

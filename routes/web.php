@@ -22,6 +22,9 @@ use function PHPSTORM_META\elementType;
 |
 */
 
+Route::get('/one-to-one-polymorphic', function () {
+});
+
 Route::get('/many-to-many-pivot', function () {
     $user = User::with('permissions')->find(10);
     echo "<b>{$user->name}</b><br>";

@@ -22,6 +22,9 @@ use function PHPSTORM_META\elementType;
 |
 */
 
+Route::get('/one-to-many-polymorphic,', function () {
+});
+
 Route::get('/one-to-one-polymorphic', function () {
 });
 

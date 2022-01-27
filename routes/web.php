@@ -23,6 +23,15 @@ use function PHPSTORM_META\elementType;
 */
 
 Route::get('/one-to-many-polymorphic,', function () {
+
+    $course = Course::first();
+
+    // $course->comments()->create([
+    //     'subject' => 'Novo comentário',
+    //     'content' => 'Apenas um comentário legal',
+    // ]);
+
+    dd($course->comments);
 });
 
 Route::get('/one-to-one-polymorphic', function () {
@@ -104,7 +113,7 @@ Route::get('/one-to-many', function () {
     $modules = $course->modules;
 
     // dd($modules);
-    dd($course);
+    // dd($course);
 });
 
 Route::get('/one-to-one', function () {

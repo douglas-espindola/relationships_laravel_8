@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function tags()
+    {
+        return $this->morphedByMany(Tag::class, 'taggables');
+    }
 }

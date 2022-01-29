@@ -66,6 +66,6 @@ class User extends Authenticatable
 
     public function tags()
     {
-        return $this->morphedByMany(Tag::class, 'taggables');
+        return $this->morphToMany(Tag::class, 'taggables');
     }
 }

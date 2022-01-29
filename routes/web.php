@@ -2,14 +2,15 @@
 
 namespace App;
 
+use App\Models\Tag;
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Permission;
 use App\Models\Preference;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Monolog\Handler\RotatingFileHandler;
 
 use function PHPSTORM_META\elementType;
+use Monolog\Handler\RotatingFileHandler;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,18 @@ use function PHPSTORM_META\elementType;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('many-to-many-polymorphic', function () {
+    $user = User::first();
+
+    // $tag = Tag::create(['name' => 'tag1', 'color' => 'blue']);
+    // $tag = Tag::create(['name' => 'tag2', 'color' => 'red']);
+    // $tag = Tag::create(['name' => 'tag3', 'color' => 'green']);
+
+    // $user->tags()->attach(1);
+
+    dd($user);
+});
 
 Route::get('/one-to-many-polymorphic,', function () {
 

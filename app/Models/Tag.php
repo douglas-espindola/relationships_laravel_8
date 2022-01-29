@@ -18,4 +18,9 @@ class Tag extends Model
     {
         return $this->morphedByMany(User::class, 'taggables');
     }
+
+    public function courses()
+    {
+        return $this->morphedByMany(Course::class, 'taggables');
+    }
 }

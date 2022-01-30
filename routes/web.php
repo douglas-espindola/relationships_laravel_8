@@ -23,7 +23,7 @@ use Monolog\Handler\RotatingFileHandler;
 |
 */
 
-Route::get('many-to-many-polymorphic', function () {
+Route::get('/many-to-many-polymorphic', function () {
     $user = User::first();
 
     // $tag = Tag::create(['name' => 'tag1', 'color' => 'blue']);
@@ -32,7 +32,9 @@ Route::get('many-to-many-polymorphic', function () {
 
     // $user->tags()->attach(1);
 
-    dd($user);
+    $tag = Tag::find(1);
+
+    dd($tag->courses);
 });
 
 Route::get('/one-to-many-polymorphic,', function () {
